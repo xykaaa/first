@@ -1,3 +1,6 @@
+# git init——初始化仓库
+# 执行了 git init命令的目录下就会生成 .git 目录。这个 .git 目录里存储着管理当前目录内容所需的仓库数据
+
 # git status 查看当前库的状态，每一次操作都会改变状态
 
 # git add filename 向暂存区添加文件,要想让文件成为 Git 仓库的管理对象，
@@ -23,7 +26,7 @@
 # git diff HEAD命令，查看本次提交与上次提交之间有什么差别，等确认完毕后再进行提交
 # 这里的 HEAD 是指向当前分支中最新一次提交的指针
 
-# git branch——显示分支一览表
+# git branch——显示分支一览表,添加 -a参数可以同时显示本地仓库和远程仓库的分支信息。
 # 左侧标有“*”（星号），表示这是我们当前所在的分支
 # git checkout  - b——创建、切换分支
 # (2) 回溯到某个 commit（进入“分离 HEAD”状态，不属于任何分支（detached HEAD））
@@ -54,10 +57,28 @@
 # 在合并特性分支之前，如果发现已提交的内容中有些许拼写错误等
 # 不妨提交一个修改，然后将这个修改包含到前一个提交之中，压缩成一个历史记录
 
+# git remote add——本地仓库添加到远程仓库
+# 在 GitHub 上创建的仓库路径为“git@github.com:用户名 /git-tutorial.git”
+# git remote add origin git@github.com:github-book/git-tutorial.git
+# 按照上述格式执行 git remote add命令之后，
+# Git 会自动将git@github.com:github-book/git-tutorial.git远程仓库的名称设置为 origin（标识符）
 
+# git push——推送至远程仓库
+# git push -u origin master(分支名)
+# u参数可以在推送的同时，将origin仓库的master分支设置为本地仓库当前分支的 upstream（上游）。
+# 添加了这个参数，将来运行 git pull命令从远程仓库获取内容时，本地仓库的这个分支就可直接从 origin 的 master 分支获取内容，省去了另外添加参数的麻烦
 
+# git clone——获取远程仓库
+# git clone git@github.com:github-book/git-tutorial.git
+# 执行 git clone命令后我们会默认处于 master 分支下，同时系统会自动将 origin 设置成该远程仓库的标识符
+# 也就是说，当前本地仓库的 master 分支与 GitHub 端远程仓库（origin）的 master 分支在内容上是完全相同的
 
+# 获取远程的 feature - D 分支
+# git checkout -b feature-D origin/feature-D
+# -b 参数的后面是本地仓库中新建分支的名称,新建分支名称后面是获取来源的分支名称
 
+# git pull——获取最新的远程仓库分支
+# git pull origin feature-D
 
 
 
